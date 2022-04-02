@@ -1,24 +1,22 @@
-import React, {FC, ReactElement} from 'react';
+import React, { FC, ReactElement } from 'react';
 
 
-interface DataSourceObject {
-  value: string;
+export interface DataSourceType {
+  value: string
 }
 
-export type DataSourceType<T={}> = T & DataSourceObject ;
-
-export interface AutoCompleteProps {
-  renderOption?: (item: DataSourceType) => ReactElement;
+export interface AutoCompleteProps<T extends DataSourceType> {
+  renderOption?: (item: T) => ReactElement;
 }
 
-export const AComponent: FC<AutoCompleteProps> = (props) => {
-  const {renderOption} = props;
+export const AComponent: FC<AutoCompleteProps<any>> = (props) => {
+  const { renderOption } = props;
   const renderTemplate = (item: DataSourceType) => {
     return renderOption ? renderOption(item) : item.value;
   }
   return (
     <div>
-      {renderTemplate({value: '123'})}
+      {renderTemplate({ value: '123' })}
     </div>
   );
 };
