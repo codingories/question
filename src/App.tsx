@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {AComponent, DataSourceType} from './Component/AComponent';
+import {AComponent} from './Component/AComponent';
 
 interface LakerPlayerProps {
   value: string;
@@ -8,7 +8,7 @@ interface LakerPlayerProps {
 }
 
 
-const renderOption = (item: DataSourceType<LakerPlayerProps>) => {
+const renderOption = (item: LakerPlayerProps) => {
   return (
     <>
       <h2>Name: {item.value}</h2>
